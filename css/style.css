@@ -87,8 +87,8 @@ a {
 }
 
 #skillsH3 {
-  color: #F5AE23;
-  display: none;
+  color: #F5A323;
+  display: block;
 }
 
 .orange {
@@ -122,6 +122,14 @@ a {
 .flex-box {
   display: -webkit-flex;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+.skills-flex-box {
+  display: -webkit-flex;
+  display: block;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -187,7 +195,8 @@ span {
     margin-top: 10%;
   }
   .biopic {
-    width: 150px;
+    width: 100px;
+    height: 300px;
   }
   .welcome-message {
     display: none;
@@ -207,9 +216,9 @@ span {
   padding-bottom: 5%;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 750px){
   #skillsH3,
   .biopic {
-    display: block;
+    display:block; 
   }
 }

@@ -104,8 +104,6 @@ $(document).click(function(loc) {
     logClicks(x,y);
 });
 
-
-
 /*
 This is the fun part. Here's where we generate the custom Google Map for the website.
 See the documentation below for more details.
@@ -176,16 +174,26 @@ function initializeMap() {
       position: placeData.geometry.location,
       title: name
     });
-
+    var contentString  = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">'+name+'</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution:<a href="https://en.wikipedia.org/w/index.php?title='+name.slice(0,name.indexOf(','))+'">'+
+            'https://en.wikipedia.org/wiki/'+name.slice(0,name.indexOf(','))+'</a> '+
+            '</p>'+
+            '</div>'+
+            '</div>';
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: contentString
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.open(map,marker);
       // your code goes here!
     });
 
